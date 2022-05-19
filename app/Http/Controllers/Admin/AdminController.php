@@ -65,7 +65,7 @@ class AdminController extends Controller
         $user->save();
 
         $notification = array(
-            'message' => 'User Profile Updated Successfully',
+            'message' => 'Admin Profile Updated Successfully',
             'alert-type' => 'success'
         );
 
