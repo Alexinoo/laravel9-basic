@@ -9,9 +9,6 @@
                 <div class="card ">
                     <div class="text-center my-3">
                         <img class="rounded-circle avatar-xl" src="{{ !empty($user->profile_image) ? asset('upload/admin_images/'.$user->profile_image) : asset('upload/no_image.jpg')}}" alt="Profile">
-
-
-
                     </div>
 
                     <div class="card-body">
