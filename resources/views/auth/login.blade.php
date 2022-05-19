@@ -18,6 +18,10 @@
     <!-- App Css-->
     <link href="{{ asset('backend/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
 
+    <!-- Toastr Css-->
+    <link href="{{ asset('css/toastr.css')}}" rel="stylesheet" type="text/css" />
+
+
 </head>
 
 <body class="auth-body-bg">
@@ -100,6 +104,38 @@
     <script src="{{ asset('backend/assets/libs/node-waves/waves.min.js')}}"></script>
 
     <script src="{{ asset('backend/assets/js/app.js')}}"></script>
+
+    {{-- Toaster Js CDN - Copied Locally --}}
+    <script src=" {{ asset('js/toastr.min.js')}}"></script>
+
+    {{-- Toaster Js CDN - Copied Locally --}}
+    <script src=" {{ asset('js/toastr.min.js')}}"></script>
+
+    <script>
+        @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type','info') }}"
+        switch (type) {
+            case 'info':
+                toastr.info(" {{ Session::get('message') }} ");
+                break;
+
+            case 'success':
+                toastr.success(" {{ Session::get('message') }} ");
+                break;
+
+            case 'warning':
+                toastr.warning(" {{ Session::get('message') }} ");
+                break;
+
+            case 'error':
+                toastr.error(" {{ Session::get('message') }} ");
+                break;
+        }
+        @endif
+
+    </script>
+
+
 
 </body>
 </html>
