@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | Upcube - Admin & Dashboard Template</title>
+    <title>Admin | Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -102,6 +102,15 @@
 
     <!-- App js -->
     <script src=" {{ asset('backend/assets/js/app.js')}}"></script>
+
+
+    {{-- JQUERY CDN - Copied Locally --}}
+    <script src=" {{ asset('js/jquery-3.6.0.min.js')}}"></script>
+
+
+
+    @yield('scripts')
+
 </body>
 
 </html>
