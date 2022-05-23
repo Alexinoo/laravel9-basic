@@ -27,7 +27,10 @@
                    <span>About Setup</span>
                </a>
                <ul class="sub-menu" aria-expanded="false">
-                   <li><a href="{{route('about.page')}}">About Page</a></li>
+                   <li><a href="{{route('about.page')}}">About Me</a></li>
+                   <li><a href="{{route('multi-image')}}">Upload Images </a></li>
+                   <li><a href="{{route('gallery')}}">Gallery </a></li>
+
                </ul>
            </li>
 
