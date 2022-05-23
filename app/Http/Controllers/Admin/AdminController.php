@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -72,7 +73,55 @@ class AdminController extends Controller
         return redirect()->route('admin.profile')->with($notification);
     }
 
+    // Change Password
+    public function ChangePassword(){
 
+        return view('Admin.Password.change-password');
+    }
+
+
+    // Update Password
+    public function UpdatePassword(Request $request){
+
+       
+        $data = $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $vHashedPassword = Auth::user()->password;       
+
+        // If $request->current_password ===  $vHashedPassword
+
+        if (Hash::check($request->current_password,  $vHashedPassword)) {
+
+            $user = User::find(Auth::id());
+            $user->password = Hash::make($request->password);
+            $user->save();
+
+            // Destroy session /logout
+            Auth::logout();
+
+            $notification = array(
+                'message' => 'Password changed successfully',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('login')->with($notification);
+        } else {
+
+            $notification = array(
+                'message' => 'Current Password is invalid',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);
+        }
+    }
+
+
+
+    // Logout Functionality
 
     public function destroy(Request $request)
     {
