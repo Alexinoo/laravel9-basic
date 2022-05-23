@@ -59,4 +59,12 @@ Route::controller(AboutController::class)->group( function(){
     Route::get('about', 'index')->name('about.page');
     Route::post('update-about/{id}', 'update')->name('update.about');
 
+    // Multi images multi-image
+    Route::get('multi-image', 'UploadImages')->name('multi-image');
+    Route::post('store-images', 'StoreImages')->name('upload.images');
+    Route::get('gallery', 'Gallery')->name('gallery');
+    Route::get('edit/{id}', 'Edit')->name('edit.gallery');
+    Route::post('update/{id}', 'UpdateImage')->name('update.gallery');
+    Route::get('delete/{id}', 'Delete')->name('delete.gallery');
+
 } );
