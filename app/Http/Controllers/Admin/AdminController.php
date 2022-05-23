@@ -86,7 +86,8 @@ class AdminController extends Controller
        
         $data = $request->validate([
             'current_password' => 'required',
-            'password' => 'required|confirmed',
+            'new_password' => 'required',
+            'confirm_password' => ['required','same:new_password']
         ]);
 
         $vHashedPassword = Auth::user()->password;       
@@ -96,7 +97,7 @@ class AdminController extends Controller
         if (Hash::check($request->current_password,  $vHashedPassword)) {
 
             $user = User::find(Auth::id());
-            $user->password = Hash::make($request->password);
+            $user->password = bcrypt($request->new_password);
             $user->save();
 
             // Destroy session /logout
