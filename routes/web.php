@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\HomeSliderController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,5 +48,15 @@ Route::controller(HomeSliderController::class)->group( function(){
 
     Route::get('home-slide', 'index')->name('home.slide');
     Route::post('update-slider/{id}', 'update')->name('update.slider');
+
+} );
+
+
+// About Page Setup
+Route::controller(AboutController::class)->group( function(){
+
+    Route::get('about-us', 'about')->name('Frontend.about');
+    Route::get('about', 'index')->name('about.page');
+    Route::post('update-about/{id}', 'update')->name('update.about');
 
 } );
