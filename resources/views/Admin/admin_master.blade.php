@@ -49,7 +49,7 @@
             <div data-simplebar class="h-100">
 
                 <!--- Sidemenu -->
-                @include('Admin.inc.left-sidebar')
+                @include('Admin.inc.sidebar')
                 <!-- Sidebar -->
             </div>
         </div>
