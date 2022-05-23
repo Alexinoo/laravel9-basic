@@ -26,22 +26,22 @@
                             </div>
                             <!-- end row -->
                             <div class="row mb-3">
-                                <label for="password" class="col-sm-2 col-form-label">New Password <span class="text-danger">*</span></label>
+                                <label for="new_password" class="col-sm-2 col-form-label">New Password <span class="text-danger">*</span></label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="password" name="password" id="password" placeholder="New Password" />
-                                    @error('password')
+                                    <input class="form-control" type="password" name="new_password" id="new_password" placeholder="New Password" />
+                                    @error('new_password')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                             </div>
                             <!-- end row -->
                             <div class="row mb-3">
-                                <label for="password_confirmation" class="col-sm-2 col-form-label">Confirm Password <span class="text-danger">*</span></label>
+                                <label for="confirm_password" class="col-sm-2 col-form-label">Confirm Password <span class="text-danger">*</span></label>
 
 
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" />
-                                    @error('password_confirmation')
+                                    <input class="form-control" type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" />
+                                    @error('confirm_password')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
