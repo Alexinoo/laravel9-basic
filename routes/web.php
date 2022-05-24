@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Frontend\AboutController;
+use App\Http\Controllers\Frontend\Blog_categoryController;
 use App\Http\Controllers\Frontend\HomeSliderController;
 use App\Http\Controllers\Frontend\PortfolioController;
 use Illuminate\Support\Facades\Route;
@@ -83,4 +84,16 @@ Route::controller(PortfolioController::class)->group(function () {
 
     // Show Portifolio details portfolio.details
     Route::get('show-portfolio-details/{id}', 'show')->name('portfolio.details');
+});
+
+
+// Blog Categories Section - routes
+Route::controller(Blog_categoryController::class)->group(function () {
+
+    Route::get('blog-categories', 'index')->name('blog_categories.index');
+    Route::get('add-category', 'create')->name('add.category');
+    Route::post('store-category', 'store')->name('store.category');
+    Route::get('edit-category/{id}', 'Edit')->name('edit.category');
+    Route::post('update-category/{id}', 'update')->name('update.category');
+    Route::get('delete-category/{id}', 'delete')->name('delete.category');
 });
