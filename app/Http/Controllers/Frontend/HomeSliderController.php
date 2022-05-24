@@ -20,7 +20,7 @@ class HomeSliderController extends Controller
     {
         $model = HomeSlider::find(1);
 
-        return view('Frontend.Home-slider.index', compact('model'));
+        return view('Admin.Home-slider.index', compact('model'));
     }
 
     /**
