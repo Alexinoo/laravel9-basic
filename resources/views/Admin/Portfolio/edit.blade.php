@@ -19,7 +19,7 @@
                             <div class="row mb-3">
                                 <label for="name" class="col-sm-2 col-form-label"> Name</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" name="name" value="{{ $model->name }}" />
+                                    <input class="form-control" type="text" name="name" value="{{$model->name}}" />
                                 </div>
                             </div>
                             <!-- end row -->
@@ -28,7 +28,7 @@
                             <div class="row mb-3">
                                 <label for="title" class="col-sm-2 col-form-label">Title</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" name="title" value="{{ $model->title }}" />
+                                    <input class="form-control" type="text" name="title" value="{{$model->title}}" />
                                 </div>
                             </div>
                             <!-- end row -->
@@ -38,7 +38,6 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label"> Description</label>
                                 <div class="col-sm-10">
                                     <textarea id="elm1" name="description">{!! $model->description !!}</textarea>
-
 
                                 </div>
                             </div>
@@ -50,6 +49,7 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Portfolio Image</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="file" name="portfolio_image" id="portfolio_image" />
+
                                 </div>
                             </div>
                             <!-- end row -->
@@ -57,7 +57,8 @@
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img class="rounded avatar-lg" src="{{ !empty($model->image) ? asset('upload/Portfolio_images/'.$model->image) : asset('upload/no_image.jpg')}}" alt="Portfolio Image" id="show_image" />
+                                    <img class="rounded avatar-lg" src="{{ !empty($model->image)?asset('upload/Portfolio_images/'.$model->image) :asset('upload/no_image.jpg')}}" alt="Portfolio Image" id="show_image" />
+
 
                                 </div>
                             </div>
