@@ -110,10 +110,7 @@ class Blog_categoryController extends Controller
      */
     public function delete($id)
     {
-       $model =  Blog_category::find($id);
-
-       if($model){
-            $model->delete();
+        Blog_category::findOrFail($id)->delete();
 
             $notification = array(
                 'message' => 'Blog Category Updated successfully',
@@ -121,16 +118,5 @@ class Blog_categoryController extends Controller
             );
 
             return redirect()->back()->with($notification);
-       }else{
-
-            $notification = array(
-                'message' => 'No ID found',
-                'alert-type' => 'error'
-            );
-
-            return redirect()->back()->with($notification);
        }
-
-       
-    }
 }
