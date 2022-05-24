@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\HomeSliderController;
+use App\Http\Controllers\Frontend\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,3 +69,15 @@ Route::controller(AboutController::class)->group( function(){
     Route::get('delete/{id}', 'Delete')->name('delete.gallery');
 
 } );
+
+
+// Portfolio Section - routes
+Route::controller(PortfolioController::class)->group(function () {
+
+    Route::get('view-portfolios', 'index')->name('portfolio.index');
+    Route::get('add-portfolio', 'create')->name('add.portfolio');
+    Route::post('store-portfolio', 'store')->name('store.portfolio');
+    Route::get('edit-portfolio/{id}', 'Edit')->name('edit.portfolio');
+    Route::post('update-portfolio/{id}', 'update')->name('update.portfolio');
+    Route::get('delete-portfolio/{id}', 'delete')->name('delete.portfolio');
+});
