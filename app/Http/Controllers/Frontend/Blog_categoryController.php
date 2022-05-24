@@ -113,8 +113,8 @@ class Blog_categoryController extends Controller
         Blog_category::findOrFail($id)->delete();
 
             $notification = array(
-                'message' => 'Blog Category Updated successfully',
-                'alert-type' => 'info'
+                'message' => 'Blog Category deleted successfully',
+                'alert-type' => 'error'
             );
 
             return redirect()->back()->with($notification);
