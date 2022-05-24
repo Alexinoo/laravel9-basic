@@ -31,6 +31,9 @@
     <!-- Toastr Css-->
     <link href="{{ asset('css/toastr.css')}}" rel="stylesheet" type="text/css" />
 
+    {{-- Tags Input JS --}}
+    <link href="{{ asset('css/bootstrap-tagsinput.css')}}" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body data-topbar="dark">
@@ -158,11 +161,8 @@
     {{-- Code to execute Sweet Alert --}}
     <script src=" {{ asset('backend/assets/js/code.js')}}"></script>
 
-
-
-
-
-
+    {{-- Tags Input JS --}}
+    <script src=" {{ asset('js/bootstrap-tagsinput.min.js')}}"></script>
 
 
     {{-- ================================================ --}}
