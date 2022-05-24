@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\Blog_categoryController;
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\HomeSliderController;
 use App\Http\Controllers\Frontend\PortfolioController;
 use Illuminate\Support\Facades\Route;
@@ -96,4 +97,16 @@ Route::controller(Blog_categoryController::class)->group(function () {
     Route::get('edit-category/{id}', 'Edit')->name('edit.category');
     Route::post('update-category/{id}', 'update')->name('update.category');
     Route::get('delete-category/{id}', 'delete')->name('delete.category');
+});
+
+
+// Blog  Section - routes
+Route::controller(BlogController::class)->group(function () {
+
+    Route::get('blog', 'index')->name('blog.index');
+    Route::get('add-blog', 'create')->name('add.blog');
+    Route::post('store-blog', 'store')->name('store.blog');
+    Route::get('edit-blog/{id}', 'Edit')->name('edit.blog');
+    Route::post('update-blog/{id}', 'update')->name('update.blog');
+    Route::get('delete-blog/{id}', 'delete')->name('delete.blog');
 });
