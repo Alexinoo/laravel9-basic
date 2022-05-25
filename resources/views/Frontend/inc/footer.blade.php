@@ -1,3 +1,7 @@
+  @php
+  $model = App\Models\Footer::find(1);
+  @endphp
+
   <!-- Footer-area -->
   <footer class="footer">
       <div class="container">
@@ -6,12 +10,11 @@
                   <div class="footer__widget">
                       <div class="fw-title">
                           <h5 class="sub-title">Contact us</h5>
-                          <h4 class="title">+81383 766 284</h4>
+                          <h4 class="title">{{ $model->phone}}</h4>
                       </div>
                       <div class="footer__widget__text">
-                          <p>There are many variations of passages of lorem ipsum
-                              available but the majority have suffered alteration
-                              in some form is also here.</p>
+                          <p>{!! $model->short_description !!}</p>
+
                       </div>
                   </div>
               </div>
@@ -19,11 +22,13 @@
                   <div class="footer__widget">
                       <div class="fw-title">
                           <h5 class="sub-title">my address</h5>
-                          <h4 class="title">AUSTRALIA</h4>
+                          <h4 class="title">{{ $model->address}}</h4>
+
                       </div>
                       <div class="footer__widget__address">
                           <p>Level 13, 2 Elizabeth Steereyt set <br> Melbourne, Victoria 3000</p>
-                          <a href="mailto:noreply@envato.com" class="mail">noreply@envato.com</a>
+                          <a href="mailto:noreply@envato.com" class="mail">{{ $model->email}}</a>
+
                       </div>
                   </div>
               </div>
@@ -36,8 +41,10 @@
                       <div class="footer__widget__social">
                           <p>Lorem ipsum dolor sit amet enim. <br> Etiam ullamcorper.</p>
                           <ul class="footer__social__list">
-                              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                              <li><a href="{{$model->facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+
+                              <li><a href="{{$model->twitter}}"><i class="fab fa-twitter"></i></a></li>
+
                               <li><a href="#"><i class="fab fa-behance"></i></a></li>
                               <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                               <li><a href="#"><i class="fab fa-instagram"></i></a></li>
@@ -50,7 +57,8 @@
               <div class="row">
                   <div class="col-12">
                       <div class="copyright__text text-center">
-                          <p>Copyright @ Theme_Pure 2021 All right Reserved</p>
+                          <p>{{$model->copyright}}</p>
+
                       </div>
                   </div>
               </div>
