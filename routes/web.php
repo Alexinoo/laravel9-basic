@@ -115,4 +115,7 @@ Route::controller(BlogController::class)->group(function () {
 
     // Show Post details for a Blog Category
     Route::get('category-blog-details/{id}', 'viewCategoryBlogDetails')->name('category_blog.details');
+
+    // Home Blog
+    Route::get('home-blog', 'HomeBlog')->name('blog');
 });
