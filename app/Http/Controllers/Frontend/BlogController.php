@@ -104,6 +104,16 @@ class BlogController extends Controller
     }
 
 
+    public function HomeBlog()
+    {
+
+        $allBlogs = Blog::latest()->get();
+
+        $blog_categories = Blog_category::latest()->get();
+
+        return view('Frontend.Blog', compact('allBlogs', 'blog_categories'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -222,4 +232,5 @@ class BlogController extends Controller
             );
         }
     }
+  
 }
