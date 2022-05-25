@@ -81,7 +81,13 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        //
+        $model = Blog::findOrFail($id);
+
+        $blogs = Blog::latest()->limit(5)->get();
+
+        $blog_categories = Blog_category::latest()->get();
+
+        return view('Frontend.Blog.blog_details', compact('model','blogs', 'blog_categories'));
     }
 
     /**
@@ -96,7 +102,7 @@ class BlogController extends Controller
         
         $blog_categories = Blog_category::latest()->get();
 
-        return view('Admin.Blog.edit', compact('model', 'blog_categories'));
+        return view('Admin.Blog.edit', compact('model','blog_categories'));
     }
 
     /**
