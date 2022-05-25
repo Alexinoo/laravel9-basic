@@ -10,11 +10,12 @@
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-8 col-md-10">
                     <div class="breadcrumb__wrap__content">
-                        <h2 class="title">Single Article </h2>
+                        <h2 class="title">{{ $category_name->category}} </h2>
+
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ $category_name->category}}</li>
                             </ol>
                         </nav>
                     </div>
@@ -46,15 +47,17 @@
                     <div class="standard__blog__post">
                         <div class="standard__blog__thumb">
                             <a href="blog-details.html"><img src="{{asset('upload/Blog_images/'.$value->blog_image)}}" alt=""></a>
-                            <a href="blog-details.html" class="blog__link"><i class="far fa-long-arrow-right"></i></a>
+                            <a href="{{route('blog.details',$value->id)}}" class="blog__link"><i class="far fa-long-arrow-right"></i></a>
+
                         </div>
                         <div class="standard__blog__content">
                             <div class="blog__post__avatar">
                                 <div class="thumb"><img src="assets/img/blog/blog_avatar.png" alt=""></div>
                                 <span class="post__by">By : <a href="#">Halina Spond</a></span>
                             </div>
-                            <h2 class="title"><a href="blog-details.html">{{ $value->blog_title }}.</a></h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                            <h2 class="title"><a href="{{route('blog.details',$value->id)}}">{{ $value->blog_title }}.</a></h2>
+                            <p>{!! Str::limit( $value->blog_description , 200 )!!}</p>
+
                             <ul class="blog__post__meta">
 
                                 <li><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($value->created_at)->diffForHumans()}}</li>
@@ -101,7 +104,8 @@
                             <ul class="sidebar__cat">
                                 @foreach($blog_categories as $key => $category)
 
-                                <li class="sidebar__cat__item"><a href="blog.html">{{ $category->category}}</a></li>
+                                <li class="sidebar__cat__item"><a href="{{ route('category_blog.details',$category->id) }}">{{ $category->category}}</a></li>
+
                                 @endforeach
 
                             </ul>

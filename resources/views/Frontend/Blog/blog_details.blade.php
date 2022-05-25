@@ -215,7 +215,7 @@
                                         <a href="blog-details.html"><img src="{{ asset('upload/Blog_images/'.$value->blog_image)}}" alt=""></a>
                                     </div>
                                     <div class="rc__post__content">
-                                        <h5 class="title"><a href="blog-details.html"></a>{{$value->blog_title}}</h5>
+                                        <h5 class="title"><a href="{{route('blog.details',$value->id)}}"></a>{{$value->blog_title}}</h5>
 
                                         <span class="post-date"><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($value->created_at)->diffForHumans()}}</span>
                                     </div>
