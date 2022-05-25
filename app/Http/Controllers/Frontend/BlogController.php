@@ -90,6 +90,18 @@ class BlogController extends Controller
         return view('Frontend.Blog.blog_details', compact('model','blogs', 'blog_categories'));
     }
 
+    public function viewCategoryBlogDetails($id)
+    {
+        $model = Blog::where('blog_category_id' ,$id)->orderBy('id','desc')->get();
+
+        $blogs = Blog::latest()->limit(5)->get();
+
+        $blog_categories = Blog_category::latest()->get();
+
+        return view('Frontend.Blog.category_blog_details', compact('model', 'blogs', 'blog_categories'));
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
