@@ -98,7 +98,9 @@ class BlogController extends Controller
 
         $blog_categories = Blog_category::latest()->get();
 
-        return view('Frontend.Blog.category_blog_details', compact('model', 'blogs', 'blog_categories'));
+        $category_name = Blog_category::findOrFail($id);
+
+        return view('Frontend.Blog.category_blog_details', compact('model', 'blogs', 'blog_categories', 'category_name'));
     }
 
 
