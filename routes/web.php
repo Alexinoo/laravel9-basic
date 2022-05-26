@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\Blog_categoryController;
 use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\FooterController;
 use App\Http\Controllers\Frontend\HomeSliderController;
 use App\Http\Controllers\Frontend\PortfolioController;
@@ -121,9 +122,26 @@ Route::controller(BlogController::class)->group(function () {
     Route::get('home-blog', 'HomeBlog')->name('blog');
 });
 
-// Footer
+// Footer Section
 Route::controller(FooterController::class)->group(function () {
 
     Route::get('footer-section', 'index')->name('footer.section');
     Route::post('footer-content/{id}', 'update')->name('update.footer');
+});
+
+
+// Contact Section //Frontend
+Route::controller(ContactController::class)->group(function () {
+
+    Route::get('contact-section', 'index')->name('contact.me');
+    Route::post('store-message', 'store')->name('store.message');
+
+    // Contact Section //Backend - Read messages
+    Route::get('contact-message', 'readMessage')->name('contact.message');
+
+
+    // Contact Section //Backend - Read messages
+    Route::get('delete-message/{id}', 'deleteMessage')->name('delete.message');
+
+
 });
