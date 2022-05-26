@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/slick.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css')}}">
+
+    <!-- Toastr Css-->
+    <link href="{{ asset('css/toastr.css')}}" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 
@@ -60,5 +64,35 @@
     <script src=" {{ asset('frontend/assets/js/wow.min.js')}}"></script>
     <script src=" {{ asset('frontend/assets/js/plugins.js')}}"></script>
     <script src=" {{ asset('frontend/assets/js/main.js')}}"></script>
+
+    {{-- Toaster Js CDN - Copied Locally --}}
+    <script src=" {{ asset('js/toastr.min.js')}}"></script>
+    @yield('scripts')
+
+    <script>
+        @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type','info') }}"
+        switch (type) {
+            case 'info':
+                toastr.info(" {{ Session::get('message') }} ");
+                break;
+
+            case 'success':
+                toastr.success(" {{ Session::get('message') }} ");
+                break;
+
+            case 'warning':
+                toastr.warning(" {{ Session::get('message') }} ");
+                break;
+
+            case 'error':
+                toastr.error(" {{ Session::get('message') }} ");
+                break;
+        }
+        @endif
+
+    </script>
+
+
 </body>
 </html>
