@@ -21,10 +21,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @php($i = 1)
+                                {{-- @php($i = 1) --}}
                                 @foreach($model as $key => $value)
                                 <tr>
-                                    <td>{{$i++}}</td>
+                                    <td>{{$key+1}}</td>
                                     <td>{{$value->category}}</td>
                                     <td>
                                         <div class="text-center">
