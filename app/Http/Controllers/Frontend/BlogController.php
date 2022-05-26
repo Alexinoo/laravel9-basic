@@ -107,7 +107,7 @@ class BlogController extends Controller
     public function HomeBlog()
     {
 
-        $allBlogs = Blog::latest()->get();
+        $allBlogs = Blog::latest()->paginate(3);
 
         $blog_categories = Blog_category::latest()->get();
 
