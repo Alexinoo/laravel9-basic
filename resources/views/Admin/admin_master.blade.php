@@ -165,6 +165,11 @@
     <script src=" {{ asset('js/bootstrap-tagsinput.min.js')}}"></script>
 
 
+
+    {{--Custom Validation JS --}}
+    <script src=" {{ asset('js/validate.min.js')}}"></script>
+
+
     {{-- ================================================ --}}
 
 
