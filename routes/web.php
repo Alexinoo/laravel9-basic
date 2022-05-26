@@ -87,7 +87,15 @@ Route::controller(PortfolioController::class)->group(function () {
 
     // Show Portifolio details portfolio.details
     Route::get('show-portfolio-details/{id}', 'show')->name('portfolio.details');
+
+    // Home Portfolio
+    Route::get('portfolio', 'HomePortfolio')->name('Frontend.portfolio');
 });
+
+
+
+
+
 
 
 // Blog Categories Section - routes
@@ -122,12 +130,17 @@ Route::controller(BlogController::class)->group(function () {
     Route::get('home-blog', 'HomeBlog')->name('blog');
 });
 
+
+
+
 // Footer Section
 Route::controller(FooterController::class)->group(function () {
 
     Route::get('footer-section', 'index')->name('footer.section');
     Route::post('footer-content/{id}', 'update')->name('update.footer');
 });
+
+
 
 
 // Contact Section //Frontend
