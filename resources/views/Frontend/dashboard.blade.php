@@ -1,5 +1,9 @@
 @extends('Frontend.frontend_master')
 
+{{-- Dynamic Title --}}
+@section('title', 'Home')
+
+
 @section('content')
 
 <!-- banner-area -->

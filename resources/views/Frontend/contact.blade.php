@@ -1,5 +1,7 @@
 @extends('Frontend.frontend_master')
 
+@section('title', 'Contact Us')
+
 @section('content')
 
 <main>
