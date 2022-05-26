@@ -37,10 +37,7 @@ class Blog_categoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'category' =>'required'
-        ]);
-
+       
         Blog_category::create([
             'category' => $request->category
         ]);
