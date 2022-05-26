@@ -70,6 +70,11 @@
 
                     @endforeach
 
+                    <div class="pagination-wrap">
+                        {{ $allBlogs->links() }}
+
+                    </div>
+
                 </div>
                 <div class="col-lg-4">
                     <aside class="blog__sidebar">
