@@ -1,3 +1,7 @@
+    @php
+    $route = Route::current()->getName();
+    @endphp
+
     <!-- header-area -->
     <header>
         <div id="sticky-header" class="menu__area transparent-header">
@@ -13,17 +17,24 @@
                                 </div>
                                 <div class="navbar__wrap main__menu d-none d-xl-flex">
                                     <ul class="navigation">
-                                        <li class="active"><a href="{{url('/')}}">Home</a></li>
 
-                                        <li><a href="{{route('Frontend.about')}}">About</a></li>
+
+                                        <li class="{{  ($route == 'home') ? 'active' : '' }}"><a href="{{route('home')}}">Home</a></li>
+
+                                        <li class="{{  ($route == 'Frontend.about') ? 'active' : '' }}"><a href="{{route('Frontend.about')}}">About</a></li>
+
                                         <li><a href="services-details.html">Services</a></li>
-                                        <li class="menu-item-has-children"><a href="{{ route('Frontend.portfolio')}}">Portfolio</a>
+
+                                        <li class="{{  ($route == 'Frontend.portfolio') ? 'active' : '' }}"><a href="{{ route('Frontend.portfolio')}}">Portfolio</a>
+                                        </li>
 
 
+                                        <li class="{{  ($route == 'blog') ? 'active' : '' }}"><a href="{{route('blog')}}"> Blog</a>
                                         </li>
-                                        <li class="menu-item-has-children"><a href="{{route('blog')}}"> Blog</a>
-                                        </li>
-                                        <li><a href="{{ route('contact.me')}}">contact me</a></li>
+
+
+                                        <li class="{{  ($route == 'contact.me') ? 'active' : '' }}"><a href="{{ route('contact.me')}}">contact me</a></li>
+
                                     </ul>
                                 </div>
                                 <div class="header__btn d-none d-md-block">
