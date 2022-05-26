@@ -210,4 +210,11 @@ class PortfolioController extends Controller
             );
         }
     }
+    public function HomePortfolio(){
+
+        $model = Portfolio::latest()->get();
+
+        return view('Frontend.portfolio', compact('model'));
+
+    }
 }
